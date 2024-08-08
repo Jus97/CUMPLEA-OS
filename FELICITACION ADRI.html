@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invitación</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fbe0e0;
+        overflow: hidden;
+      }
+      .p-container {
+        z-index: 2; /* Aseguramos que el texto esté encima de la imagen del pastel */
+        position: absolute; /* Posicionamos el texto absolutamente */
+        text-align: center;
+        color: #000; /* Color del texto */
+      }
+      .p-container h1 {
+        font-size: 48px; /* Tamaño de la letra aumentado */
+        font-weight: bold; /* Negritas */
+        margin: 0; /* Sin margen para evitar espacios adicionales */
+      }
+      .pastel-container {
+        z-index: 1; /* Aseguramos que la imagen del pastel esté detrás del texto */
+        position: relative;
+        width: 100%; /* Ajustamos el tamaño de la imagen para que se vea completa */
+        text-align: center;
+      }
+      .pastel-container img {
+        max-width: 100%;
+        height: auto;
+      }
+      .telon {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        z-index: 3; /* El telón debe estar al frente al inicio */
+      }
+      .left, .right {
+        height: 100vh;
+        width: 50%;
+        transition: transform 0.8s ease-in-out;
+        background-image: url('https://img.freepik.com/vector-gratis/cortinas-cine-teatro-ilustracion-vector-luz-enfoque_1017-38346.jpg?size=626&ext=jpg&ga=GA1.1.2113030492.1719532800&semt=ais_user'); 
+        background-size: 200% 100%;
+      }
+      .left {
+        position: absolute;
+        left: 0;
+        background-position: left center;
+        transform-origin: left center;
+      }
+      .right {
+        position: absolute;
+        right: 0;
+        background-position: right center;
+        transform-origin: right center;
+      }
+      .abrir-left {
+        transform: translateX(-100%);
+      }
+      .abrir-right {
+        transform: translateX(100%);
+      }
+      .cerrar {
+        transform: translateX(0);
+      }
+    </style>
+    <script>
+      document.addEventListener('click', () => {
+        const left = document.querySelector('.left');
+        const right = document.querySelector('.right');
+        
+        left.classList.toggle('abrir-left');
+        left.classList.toggle('cerrar');
+        
+        right.classList.toggle('abrir-right');
+        right.classList.toggle('cerrar');
+      });
+    </script>
+  </head>
+  <body>
+    <div class="telon">
+      <div class="left cerrar"></div>
+      <div class="right cerrar"></div>
+    </div>
+    <div class="pastel-container">
+      <img src="pastel.png" alt="Cumpleaños" />
+    </div>
+    <div class="p-container">
+      <h1>Feliz cumpleaños mi Lic Adri, te envio mis mejores deseos y un fuerte y animoso abrazo, te quiero musho❤️</h1>
+    </div>
+  </body>
+</html>
